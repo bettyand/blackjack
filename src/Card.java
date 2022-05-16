@@ -26,6 +26,6 @@ public class Card {
 
     @Override
     public String toString() {
-        return ("[" + this.getRank() + " of " + this.getSuit() + "] (" + this.getValue() + ")");
+        return this.getRank() + " of " + this.getSuit();
     }
 }

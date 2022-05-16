@@ -4,7 +4,11 @@ public class Player extends Person {
     Scanner in = new Scanner(System.in);
 
     public Player() {
-        super.setName("Player");
+        setName("Player");
+    }
+
+    public Player(String playerName) {
+        setName(playerName);
     }
 
     public void makeDecision(Deck deck, Deck discard) {
@@ -23,6 +27,8 @@ public class Player extends Person {
         }
 
         if (decision == 1) {
+            System.out.println();
+            System.out.println("You hit.");
             this.hit(deck, discard);
             if (this.getHand().calculateValue() > 20) {
                 return;
@@ -30,6 +36,7 @@ public class Player extends Person {
                 this.makeDecision(deck, discard);
             }
         } else {
+            System.out.println();
             System.out.println("You stand.");
         }
     }

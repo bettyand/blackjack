@@ -11,6 +11,11 @@ public class Hand {
         return hand.get(index);
     }
 
+    public Card getLast() {
+        int index = this.hand.size() - 1;
+        return hand.get(index);
+    }
+
     public void takeCardFromDeck(Deck deck) {
         hand.add(deck.takeCard());
     }
@@ -22,18 +27,22 @@ public class Hand {
 
     public int calculateValue() {
         int value = 0;
-        int aceCount = 0;
+        int aces = 0;
 
         for (Card card : hand) {
-            value += card.getValue();
             if (card.getValue() == 11) {
-                aceCount++;
+                aces++;
+            } else {
+                value += card.getValue();
             }
         }
 
-        if (value > 21 && aceCount > 0) {
-            aceCount--;
-            value -= 10;
+        for (int i = 0; i < aces; i++) {
+            if (value > 10) {
+                value += 1;
+            } else {
+                value += 11;
+            }
         }
 
         return value;

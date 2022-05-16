@@ -1,11 +1,11 @@
 public class Dealer extends Person {
     public Dealer() {
-        super.setName("Dealer");
+        setName("Dealer");
     }
 
     public void printFirstHand() {
-        System.out.println("The dealer's hand looks like this: ");
-        System.out.println(super.getHand().getCard(0));
-        System.out.println("The second card is face down.");
+        System.out.println();
+        System.out.println("Dealer's hand:");
+        System.out.println(getHand().getCard(0) + " - [face down] - Valued at: ??");
     }
 }

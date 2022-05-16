@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 public class Deck {
     private ArrayList<Card> deck;
@@ -47,23 +46,12 @@ public class Deck {
         discard.emptyDeck();
     }
 
-    // public void shuffle() {
-    //     ArrayList<Card> shuffled = new ArrayList<>();
-    //     while(deck.size() > 0) {
-    //         int cardToPull = (int)(Math.random() * (deck.size() - 1));
-    //         deck.remove(cardToPull);
-    //         shuffled.add(deck.get(cardToPull));
-    //     }
-    //     deck = shuffled;
-    // }
-
     public void shuffle() {
-            Collections.shuffle(deck, new Random());
+            Collections.shuffle(deck);
     }
 
     public Card takeCard() {
-        Card cardToTake = new Card(deck.get(0));
-        deck.remove(0);
+        Card cardToTake = new Card(deck.remove(0));
         return cardToTake;
     }
 

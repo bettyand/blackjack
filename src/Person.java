@@ -22,8 +22,9 @@ public abstract class Person {
     }
 
     public void printHand() {
-        System.out.println(this.name + "'s hand looks like this:");
-        System.out.println(this.hand + " Valued at: " + this.hand.calculateValue());
+        System.out.println();
+        System.out.println(this.name + "'s hand:");
+        System.out.println(this.hand + "Valued at: " + this.hand.calculateValue());
     }
 
     public void hit(Deck deck, Deck discard) {
@@ -31,8 +32,10 @@ public abstract class Person {
             deck.reloadFromDiscard(discard);
         }
         this.hand.takeCardFromDeck(deck);
-        System.out.println(this.name + " gets a card");
+        System.out.println();
+        System.out.println(this.name + " draws the " + this.hand.getLast() + ".");
         this.printHand();
+        System.out.println();
     }
 
     public boolean hasBlackJack() {
